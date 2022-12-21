@@ -35,6 +35,22 @@ info:
     and standard method from web, mobile and desktop applications.
 
     <SecurityDefinitions />
+  version: 1.0.0
+  title: Swagger Petstore
+  termsOfService: http://swagger.io/terms/
+  contact:
+    name: API Support
+    email: apiteam@swagger.io
+    url: https://github.com/Redocly/redoc
+  x-logo:
+    url: https://thumbs.dreamstime.com/b/psd-signo-de-directiva-servicios-pago-ilustraci%C3%B3n-la-169809025.jpg
+    altText: PSD2 Logo
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+externalDocs:
+  description: Find out how to create Github repo for your OpenAPI spec.
+  url: https://github.com/Rebilly/generator-openapi-repo
 tags:
   - name: pet
     description: Everything about your Pets
@@ -67,7 +83,7 @@ paths:
     parameters:
       - name: Accept-Language
         in: header
-        description: "The language you prefer for messages. Supported values are en-AU, en-CA, en-GB, en-US"
+        description: The language you prefer for messages. Supported values are en-AU, en-CA, en-GB, en-US
         example: en-US
         required: false
         schema:
@@ -91,10 +107,10 @@ paths:
           description: Invalid input
       security:
         - petstore_auth:
-            - 'write:pets'
-            - 'read:pets'
+            - write:pets
+            - read:pets
       x-codeSamples:
-        - lang: 'C#'
+        - lang: C#
           source: |
             PetStore.v1.Pet pet = new PetStore.v1.Pet();
             pet.setApiKey("your api key");
@@ -139,8 +155,8 @@ paths:
           description: Validation exception
       security:
         - petstore_auth:
-            - 'write:pets'
-            - 'read:pets'
+            - write:pets
+            - read:pets
       x-codeSamples:
         - lang: PHP
           source: |
@@ -156,7 +172,7 @@ paths:
             }
       requestBody:
         $ref: '#/components/requestBodies/Pet'
-  '/pet/{petId}':
+  /pet/{petId}:
     get:
       tags:
         - pet
@@ -207,8 +223,8 @@ paths:
           description: Invalid input
       security:
         - petstore_auth:
-            - 'write:pets'
-            - 'read:pets'
+            - write:pets
+            - read:pets
       requestBody:
         content:
           application/x-www-form-urlencoded:
@@ -233,7 +249,7 @@ paths:
           required: false
           schema:
             type: string
-          example: "Bearer <TOKEN>"
+          example: Bearer <TOKEN>
         - name: petId
           in: path
           description: Pet id to delete
@@ -246,9 +262,9 @@ paths:
           description: Invalid pet value
       security:
         - petstore_auth:
-            - 'write:pets'
-            - 'read:pets'
-  '/pet/{petId}/uploadImage':
+            - write:pets
+            - read:pets
+  /pet/{petId}/uploadImage:
     post:
       tags:
         - pet
@@ -272,8 +288,8 @@ paths:
                 $ref: '#/components/schemas/ApiResponse'
       security:
         - petstore_auth:
-            - 'write:pets'
-            - 'read:pets'
+            - write:pets
+            - read:pets
       requestBody:
         content:
           application/octet-stream:
@@ -322,16 +338,14 @@ paths:
           description: Invalid status value
       security:
         - petstore_auth:
-            - 'write:pets'
-            - 'read:pets'
+            - write:pets
+            - read:pets
   /pet/findByTags:
     get:
       tags:
         - pet
       summary: Finds Pets by tags
-      description: >-
-        Multiple tags can be provided with comma separated strings. Use tag1,
-        tag2, tag3 for testing.
+      description: Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing.
       operationId: findPetsByTags
       deprecated: true
       parameters:
@@ -364,8 +378,8 @@ paths:
           description: Invalid tag value
       security:
         - petstore_auth:
-            - 'write:pets'
-            - 'read:pets'
+            - write:pets
+            - read:pets
   /store/inventory:
     get:
       tags:
@@ -409,7 +423,7 @@ paths:
             application/json:
               example:
                 status: 400
-                message: "Invalid Order"
+                message: Invalid Order
       requestBody:
         content:
           application/json:
@@ -417,14 +431,12 @@ paths:
               $ref: '#/components/schemas/Order'
         description: order placed for purchasing the pet
         required: true
-  '/store/order/{orderId}':
+  /store/order/{orderId}:
     get:
       tags:
         - store
       summary: Find purchase order by ID
-      description: >-
-        For valid response try integer IDs with value <= 5 or > 10. Other values
-        will generated exceptions
+      description: For valid response try integer IDs with value <= 5 or > 10. Other values will generated exceptions
       operationId: getOrderById
       parameters:
         - name: orderId
@@ -454,9 +466,7 @@ paths:
       tags:
         - store
       summary: Delete purchase order by ID
-      description: >-
-        For valid response try integer IDs with value < 1000. Anything above
-        1000 or nonintegers will generate API errors
+      description: For valid response try integer IDs with value < 1000. Anything above 1000 or nonintegers will generate API errors
       operationId: deleteOrder
       parameters:
         - name: orderId
@@ -523,7 +533,7 @@ paths:
               description: A callback triggered every time an Order is updated status to "inProgress" (Description)
               externalDocs:
                 description: Find out more
-                url: 'https://more-details.com/demo'
+                url: https://more-details.com/demo
               requestBody:
                 content:
                   application/json:
@@ -539,7 +549,7 @@ paths:
                           example: '2018-10-19T16:46:45Z'
                         status:
                           type: string
-                          example: 'inProgress'
+                          example: inProgress
                   application/xml:
                     schema:
                       type: object
@@ -570,7 +580,7 @@ paths:
                 '500':
                   description: Callback processing failed and retries will be performed
               x-codeSamples:
-                - lang: 'C#'
+                - lang: C#
                   source: |
                     PetStore.v1.Pet pet = new PetStore.v1.Pet();
                     pet.setApiKey("your api key");
@@ -620,7 +630,7 @@ paths:
                           example: '2018-10-19T16:46:45Z'
                         status:
                           type: string
-                          example: 'inProgress'
+                          example: inProgress
                   application/xml:
                     schema:
                       type: object
@@ -678,7 +688,7 @@ paths:
                 '200':
                   description: Callback successfully processed and no retries will be performed
         orderDelivered:
-          'http://notificationServer.com?url={$request.body#/callbackUrl}&event={$request.body#/eventName}':
+          http://notificationServer.com?url={$request.body#/callbackUrl}&event={$request.body#/eventName}:
             post:
               deprecated: true
               summary: Order delivered
@@ -716,7 +726,7 @@ paths:
               $ref: '#/components/schemas/User'
         description: Created user object
         required: true
-  '/user/{username}':
+  /user/{username}:
     get:
       tags:
         - user
@@ -948,7 +958,7 @@ components:
               type: number
               description: Average amount of honey produced per day in ounces
               example: 3.14
-              multipleOf: .01
+              multipleOf: 0.01
           required:
             - honeyPerDay
     Id:
@@ -1007,8 +1017,8 @@ components:
       properties:
         id:
           externalDocs:
-            description: "Find more info here"
-            url: "https://example.com"
+            description: Find more info here
+            url: https://example.com
           description: Pet ID
           allOf:
             - $ref: '#/components/schemas/Id'
@@ -1098,17 +1108,15 @@ components:
           example: john.smith@example.com
         password:
           type: string
-          description: >-
-            User password, MUST contain a mix of upper and lower case letters,
-            as well as digits
+          description: User password, MUST contain a mix of upper and lower case letters, as well as digits
           format: password
           minLength: 8
-          pattern: '/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/'
+          pattern: /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/
           example: drowssaP123
         phone:
           description: User phone number in international format
           type: string
-          pattern: '/^\+(?:[0-9]-?){6,14}[0-9]$/'
+          pattern: /^\+(?:[0-9]-?){6,14}[0-9]$/
           example: +1-202-555-0192
         userStatus:
           description: User status
@@ -1147,7 +1155,7 @@ components:
               - $ref: '#/components/schemas/Pet'
         application/xml:
           schema:
-            type: 'object'
+            type: object
             properties:
               name:
                 type: string
@@ -1171,14 +1179,13 @@ components:
       type: oauth2
       flows:
         implicit:
-          authorizationUrl: 'http://petstore.swagger.io/api/oauth/dialog'
+          authorizationUrl: http://petstore.swagger.io/api/oauth/dialog
           scopes:
-            'write:pets': modify pets in your account
-            'read:pets': read your pets
+            write:pets: modify pets in your account
+            read:pets: read your pets
     api_key:
-      description: >
-        For this sample, you can use the api key `special-key` to test the
-        authorization filters.
+      description: |
+        For this sample, you can use the api key `special-key` to test the authorization filters.
       type: apiKey
       name: api_key
       in: header
@@ -1201,7 +1208,7 @@ x-webhooks:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Pet"
+              $ref: '#/components/schemas/Pet'
       responses:
-        "200":
+        '200':
           description: Return a 200 status to indicate that the data was received successfully
