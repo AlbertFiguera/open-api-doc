@@ -58,7 +58,7 @@ tags:
 x-tagGroups:
   - name: PISP
     tags:
-      - PISP
+      - Payment Initiation
   - name: AIS
     tags:
       - ais consent
@@ -91,7 +91,7 @@ paths:
           format: int64
     post:
       tags:
-        - PISP
+        - Payment Initiation
       summary: Add a new pet to the store
       description: Add new pet to the store inventory.
       operationId: addPet
@@ -168,7 +168,7 @@ paths:
   /pet/{petId}:
     get:
       tags:
-        - PISP
+        - Payment Initiation
       summary: Find pet by ID
       description: Returns a single pet
       operationId: getPetById
@@ -199,7 +199,7 @@ paths:
         - api_key: []
     post:
       tags:
-        - PISP
+        - Payment Initiation
       summary: Updates a pet in the store with form data
       description: ''
       operationId: updatePetWithForm
@@ -232,7 +232,7 @@ paths:
                   type: string
     delete:
       tags:
-        - PISP
+        - Payment Initiation
       summary: Deletes a pet
       description: ''
       operationId: deletePet
