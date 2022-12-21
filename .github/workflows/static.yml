@@ -27,7 +27,7 @@ jobs:
         - name: redoc-cli
           uses: trybeapp/redocly-openapi-cli-github-action@v0.0.1
           with:
-            args: 'bundle open-api.yaml -o public/index.html'
+            args: 'bundle open-api.yml -o public/index.html'
         - name: Upload artifact
           uses: actions/upload-pages-artifact@v1
           with:
