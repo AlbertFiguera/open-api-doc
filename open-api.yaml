@@ -58,8 +58,7 @@ tags:
 x-tagGroups:
   - name: PISP
     tags:
-      - pis initiation
-      - pis status
+      - PISP
   - name: AIS
     tags:
       - ais consent
@@ -73,7 +72,7 @@ x-tagGroups:
       - pet_model
       - store_model
 paths:
-  /pis initiation:
+  /pis/initiation:
     parameters:
       - name: Accept-Language
         in: header
@@ -169,7 +168,7 @@ paths:
   /pet/{petId}:
     get:
       tags:
-        - pet
+        - PISP
       summary: Find pet by ID
       description: Returns a single pet
       operationId: getPetById
@@ -200,7 +199,7 @@ paths:
         - api_key: []
     post:
       tags:
-        - pet
+        - PISP
       summary: Updates a pet in the store with form data
       description: ''
       operationId: updatePetWithForm
@@ -233,7 +232,7 @@ paths:
                   type: string
     delete:
       tags:
-        - pet
+        - PISP
       summary: Deletes a pet
       description: ''
       operationId: deletePet
