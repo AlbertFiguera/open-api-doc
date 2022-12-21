@@ -11,6 +11,11 @@ info:
     laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     
+    # Cross-Origin Resource Sharing
+    This API features Cross-Origin Resource Sharing (CORS) implemented in compliance with  [W3C spec](https://www.w3.org/TR/cors/).
+    And that allows cross-domain communication from the browser.
+    All responses have a wildcard same-origin which makes them completely public and accessible to everyone, including any code on any site.
+
     # Authentication
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
     laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
@@ -51,19 +56,24 @@ tags:
     description: |
       <SchemaDefinition schemaRef="#/components/schemas/Order" exampleRef="#/components/examples/Order" showReadOnly={true} showWriteOnly={true} />
 x-tagGroups:
-  - name: General
+  - name: PISP
     tags:
-      - pet
-      - store
-  - name: User Management
+      - pis initiation
+      - pis status
+  - name: AIS
     tags:
-      - user
+      - ais consent
+      - ais status
+  - name: CBPII
+    tags:
+      - ais consent
+      - ais status
   - name: Models
     tags:
       - pet_model
       - store_model
 paths:
-  /pet:
+  /pis initiation:
     parameters:
       - name: Accept-Language
         in: header
@@ -82,7 +92,7 @@ paths:
           format: int64
     post:
       tags:
-        - pet
+        - pis initiation
       summary: Add a new pet to the store
       description: Add new pet to the store inventory.
       operationId: addPet
