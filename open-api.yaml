@@ -35,23 +35,6 @@ info:
     and standard method from web, mobile and desktop applications.
 
     <SecurityDefinitions />
-
-  version: 1.0.0
-  title: Swagger Petstore
-  termsOfService: 'http://swagger.io/terms/'
-  contact:
-    name: API Support
-    email: apiteam@swagger.io
-    url: https://github.com/Redocly/redoc
-  x-logo:
-    url: 'https://thumbs.dreamstime.com/b/psd-signo-de-directiva-servicios-pago-ilustraci%C3%B3n-la-169809025.jpg'
-    altText: PSD2 Logo
-  license:
-    name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
-externalDocs:
-  description: Find out how to create Github repo for your OpenAPI spec.
-  url: 'https://github.com/Rebilly/generator-openapi-repo'
 tags:
   - name: pet
     description: Everything about your Pets
