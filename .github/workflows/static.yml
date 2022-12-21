@@ -25,7 +25,7 @@ jobs:
         - name: Setup GitHub Pages
           uses: actions/configure-pages@v2
         - name: redoc-cli
-          uses: seeebiii/redoc-cli-github-action@v10
+          uses: trybeapp/redocly-openapi-cli-github-action@v0.0.1
           with:
             args: 'bundle open-api.yaml -o public/index.html'
         - name: Upload artifact
