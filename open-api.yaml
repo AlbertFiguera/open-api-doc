@@ -790,13 +790,6 @@ paths:
           description: Invalid username supplied
         '404':
           description: User not found
-    get:
-      tags:
-        - Confirmation of funds
-      summary: Logs out current logged in user session
-      description: ''
-      operationId: logoutUser
-      responses:
         default:
           description: successful operation
 components:
